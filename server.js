@@ -22,7 +22,6 @@ npm run start PUT products/7 "Camisa Azul" 450 "camisas"
 🔹 Eliminar un producto
 npm run start DELETE products/7
 
-👉 Con esto ya tenés un mini cliente CLI para la FakeStore API (CRUD).
 */
 import fetch from "node-fetch";
 
