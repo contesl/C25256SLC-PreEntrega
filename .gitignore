@@ -15,7 +15,7 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Dependency directories
+# Dependency directories de nuevo
 node_modules/
 jspm_packages/
 
