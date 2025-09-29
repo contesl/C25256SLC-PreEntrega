@@ -15,6 +15,7 @@ Como utilizar el codigo:
  POST products <title> <price> <category> → crear producto. los nombres de campos son los que estan en la API pero solo se necesitan los valores
  
  PUT products/<id> <title> <price> <category> → actualizar producto. idem post
+ 
  DELETE products/<id> → eliminar producto
 
 Ejemplos de uso:
