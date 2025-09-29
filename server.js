@@ -1,10 +1,10 @@
-// index.js
+// index.js: le puse server.js porque me parecio mas  apropiado
 /*
-✅ GET products → todos los productos
-✅ GET products/<id> → producto específico
-✅ POST products <title> <price> <category> → crear producto
-✅ PUT products/<id> <title> <price> <category> → actualizar producto
-✅ DELETE products/<id> → eliminar producto
+ GET products → todos los productos
+ GET products/<id> → producto específico
+ POST products <title> <price> <category> → crear producto
+ PUT products/<id> <title> <price> <category> → actualizar producto
+ DELETE products/<id> → eliminar producto
 
 Ejemplos de uso:
 🔹 Consultar todos los productos
@@ -33,29 +33,29 @@ const API_URL = "https://fakestoreapi.com";
 async function main() {
   try {
     if (method === "GET") {
-      // GET all products
+      // GET todos los productos
       if (resource === "products") {
         const res = await fetch(`${API_URL}/products`);
         const data = await res.json();
         console.log("📦 Lista de productos:");
         console.log(data);
       }
-      // GET single product
+      // GET de un solo producto
       else if (resource.startsWith("products/")) {
         const productId = resource.split("/")[1];
         const res = await fetch(`${API_URL}/products/${productId}`);
         const data = await res.json();
-        console.log(`📦 Producto con ID ${productId}:`);
+        console.log(`Producto con ID ${productId}:`);
         console.log(data);
       } else {
-        console.log("❌ Recurso no reconocido para GET.");
+        console.log("Recurso no reconocido para GET.");
       }
     }
 
     else if (method === "POST" && resource === "products") {
       const [title, price, category] = rest;
       if (!title || !price || !category) {
-        console.log("⚠️ Debes indicar: <title> <price> <category>");
+        console.log('Por favor indicar: <nombre> <precio> <categoria> en formato: "T-Shirt-Rex" 300 "remeras" ');
         return;
       }
 
@@ -68,7 +68,7 @@ async function main() {
       });
 
       const data = await res.json();
-      console.log("✅ Producto creado con éxito. ID:", data.id);
+      console.log("Producto creado con éxito. ID:", data.id);
       console.log(data);
     }
 
@@ -77,7 +77,7 @@ async function main() {
       const [title, price, category] = rest;
 
       if (!title || !price || !category) {
-        console.log("⚠️ Debes indicar: <title> <price> <category>");
+        console.log('Por favor indicar: <nombre> <precio> <categoria> en formato: "T-Shirt-Rex" 300 "remeras" ');
         return;
       }
 
@@ -90,7 +90,7 @@ async function main() {
       });
 
       const data = await res.json();
-      console.log(`✏️ Producto con ID ${productId} actualizado:`);
+      console.log(`Producto con ID ${productId} actualizado:`);
       console.log(data);
     }
 
@@ -102,12 +102,12 @@ async function main() {
       });
 
       const data = await res.json();
-      console.log(`🗑️ Producto con ID ${productId} eliminado:`);
+      console.log(`Producto con ID ${productId} eliminado:`);
       console.log(data);
     }
 
     else {
-      console.log("❌ Comando no reconocido.");
+      console.log("Comando no reconocido.");
       console.log("Ejemplos válidos:");
       console.log("npm run start GET products");
       console.log("npm run start GET products/15");
@@ -117,7 +117,7 @@ async function main() {
     }
 
   } catch (error) {
-    console.error("⚠️ Error al consultar la API:", error.message);
+    console.error("Error al consultar la API:", error.message);
   }
 }
 
